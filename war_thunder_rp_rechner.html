@@ -51,6 +51,18 @@
     <ul id="roundList" class="space-y-1"></ul>
   </div>
 
+  <!-- Bestätigungsfenster für "Clear All" -->
+  <div id="confirmModal" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 hidden">
+    <div class="bg-neutral-800 rounded-xl p-6 w-full max-w-sm shadow-xl space-y-4">
+      <h2 class="text-lg font-semibold">Alle Runden löschen?</h2>
+      <p class="text-sm text-neutral-300">Diese Aktion kann nicht rückgängig gemacht werden.</p>
+      <div class="flex justify-end gap-2">
+        <button id="cancelClear" class="px-4 py-2 rounded bg-neutral-700 hover:bg-neutral-600">Nein</button>
+        <button id="confirmClear" class="px-4 py-2 rounded bg-red-600 hover:bg-red-500">Ja, löschen</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Battle-Mode Auswahl entfernt, der Rechner arbeitet nun allgemein mit den eingegebenen RP-Daten -->
 
   <div class="grid grid-cols-3 gap-4">
@@ -156,6 +168,9 @@ const timeOut = document.getElementById('time');
 const progressPercent = document.getElementById('progressPercent');
 const progressBar = document.getElementById('progressBar');
 const avgRPPerMinOut = document.getElementById('avgRPPerMin');
+const confirmModal = document.getElementById('confirmModal');
+const confirmClearBtn = document.getElementById('confirmClear');
+const cancelClearBtn = document.getElementById('cancelClear');
 const remainingRPOut = document.getElementById('remainingRP');
 
 addRoundBtn.onclick = ()=>{
@@ -170,11 +185,19 @@ addRoundBtn.onclick = ()=>{
 };
 
 clearAllRoundsBtn.onclick = ()=>{
-  if (rounds.length > 0 && confirm('Are you sure you want to delete all rounds?')) {
-    rounds = [];
-    currentRPInput.value = 0;
-    save(); render();
-  }
+  confirmModal.classList.remove('hidden');
+};
+
+confirmClearBtn.onclick = ()=>{
+  rounds = [];
+  currentRPInput.value = 0;
+  save();
+  render();
+  confirmModal.classList.add('hidden');
+};
+
+cancelClearBtn.onclick = ()=>{
+  confirmModal.classList.add('hidden');
 };
 
 [totalRPInput,currentRPInput].forEach(el=>el.onchange=()=>{save();render();});
