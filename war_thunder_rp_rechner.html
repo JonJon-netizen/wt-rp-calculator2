@@ -6,59 +6,60 @@
   <title>War Thunder RP Rechner</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="min-h-screen bg-neutral-900 text-white flex items-center justify-center p-4">
+<body class="min-h-screen text-white flex items-center justify-center p-4 bg-cover bg-center bg-fixed" style="background-image: url('background.jpg');">
+  <div class="fixed inset-0 bg-black/40 -z-10"></div>
 
-<div class="w-full max-w-2xl bg-neutral-800 rounded-2xl shadow-xl p-6 space-y-6">
-  <h1 class="text-2xl font-bold">Grind Calculator - War Thunder</h1>
+<div class="w-full max-w-2xl bg-neutral-900/70 backdrop-blur-lg border border-white/10 rounded-2xl shadow-2xl p-6 space-y-6">
+  <h1 class="text-2xl font-bold drop-shadow-md tracking-wider">Grind Calculator - War Thunder</h1>
 
-  <div class="bg-neutral-900 p-4 rounded-xl">
+  <div class="bg-black/30 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-inner">
     <div class="grid grid-cols-2 gap-4">
       <div>
-        <label class="block text-sm font-semibold mb-2">Total RP</label>
-        <input id="totalRP" type="number" placeholder="Total RP" class="w-full p-2 rounded bg-neutral-800" />
+        <label class="block text-sm font-semibold mb-2 drop-shadow-md">Total RP</label>
+        <input id="totalRP" type="number" placeholder="Total RP" class="w-full p-2 rounded bg-white/5 border border-white/20 text-white placeholder-neutral-400 focus:outline-none focus:bg-white/10 focus:border-white/40 transition-all backdrop-blur-sm" />
       </div>
       <div class="row-span-2">
-        <div class="w-full h-full bg-gradient-to-br from-green-600 to-green-700 rounded-xl p-4 text-center flex flex-col justify-center">
-          <p class="text-sm text-green-100 mb-2">Research Progress</p>
-          <p class="text-3xl font-bold text-white mb-3" id="progressPercent">0%</p>
-          <div class="w-full bg-green-900 rounded-full h-3 overflow-hidden">
-            <div id="progressBar" class="bg-green-300 h-full rounded-full transition-all duration-300" style="width: 0%"></div>
+        <div class="w-full h-full bg-gradient-to-br from-green-500/30 to-green-700/30 backdrop-blur-md border border-green-400/30 rounded-xl p-4 text-center flex flex-col justify-center shadow-lg">
+          <p class="text-sm text-green-100 mb-2 drop-shadow">Research Progress</p>
+          <p class="text-3xl font-bold text-white mb-3 drop-shadow-md" id="progressPercent">0%</p>
+          <div class="w-full bg-black/40 rounded-full h-3 overflow-hidden shadow-inner border border-white/10">
+            <div id="progressBar" class="bg-green-400 h-full rounded-full transition-all duration-300 shadow-[0_0_10px_rgba(74,222,128,0.5)]" style="width: 0%"></div>
           </div>
-          <p class="text-sm text-green-100 mt-2">Noch <span id="remainingRP">0</span> RP</p>
+          <p class="text-sm text-green-100 mt-2 font-medium drop-shadow">Noch <span id="remainingRP">0</span> RP</p>
         </div>
       </div>
       <div>
-        <label class="block text-sm font-semibold mb-2">Farmed RP</label>
-        <input id="currentRP" type="number" placeholder="Current RP" class="w-full p-2 rounded bg-neutral-800" />
+        <label class="block text-sm font-semibold mb-2 drop-shadow-md">Farmed RP</label>
+        <input id="currentRP" type="number" placeholder="Current RP" class="w-full p-2 rounded bg-white/5 border border-white/20 text-white placeholder-neutral-400 focus:outline-none focus:bg-white/10 focus:border-white/40 transition-all backdrop-blur-sm" />
       </div>
     </div>
   </div>
 
-  <div class="bg-neutral-900 p-4 rounded-xl space-y-3">
+  <div class="bg-black/30 backdrop-blur-md p-4 rounded-xl border border-white/10 shadow-inner space-y-3">
     <div>
-      <label class="block text-sm font-semibold mb-2">Match Results</label>
-      <input id="roundRP" type="number" placeholder="RP earned" class="w-full p-2 rounded bg-neutral-800 border-2 border-neutral-700 focus:border-blue-500 focus:outline-none transition" />
+      <label class="block text-sm font-semibold mb-2 drop-shadow-md">Match Results</label>
+      <input id="roundRP" type="number" placeholder="RP earned" class="w-full p-2 rounded bg-white/5 border border-white/20 text-white placeholder-neutral-400 focus:outline-none focus:bg-white/10 focus:border-white/40 transition-all backdrop-blur-sm" />
     </div>
 
     <div class="flex gap-2">
-      <input id="roundMin" type="number" placeholder="Min" class="w-20 p-2 rounded bg-neutral-800 border-2 border-neutral-700 focus:border-blue-500 focus:outline-none transition" />
-      <span class="flex items-center">:</span>
-      <input id="roundSec" type="number" placeholder="Sec" class="w-20 p-2 rounded bg-neutral-800 border-2 border-neutral-700 focus:border-blue-500 focus:outline-none transition" />
-      <button id="addRound" class="ml-auto bg-green-600 hover:bg-green-500 px-4 rounded">Add</button>
-      <button id="clearAllRounds" class="bg-red-600 hover:bg-red-500 px-4 rounded">Clear All</button>
+      <input id="roundMin" type="number" placeholder="Min" class="w-20 p-2 rounded bg-white/5 border border-white/20 text-white placeholder-neutral-400 focus:outline-none focus:bg-white/10 focus:border-white/40 transition-all backdrop-blur-sm" />
+      <span class="flex items-center text-white/80">:</span>
+      <input id="roundSec" type="number" placeholder="Sec" class="w-20 p-2 rounded bg-white/5 border border-white/20 text-white placeholder-neutral-400 focus:outline-none focus:bg-white/10 focus:border-white/40 transition-all backdrop-blur-sm" />
+      <button id="addRound" class="ml-auto bg-green-500/40 hover:bg-green-500/60 border border-green-400/30 backdrop-blur-sm px-4 rounded transition-all shadow-md">Add</button>
+      <button id="clearAllRounds" class="bg-red-500/40 hover:bg-red-500/60 border border-red-400/30 backdrop-blur-sm px-4 rounded transition-all shadow-md">Clear All</button>
     </div>
 
     <ul id="roundList" class="space-y-1"></ul>
   </div>
 
   <!-- Bestätigungsfenster für "Clear All" -->
-  <div id="confirmModal" class="fixed inset-0 bg-black/60 flex items-center justify-center z-50 hidden">
-    <div class="bg-neutral-800 rounded-xl p-6 w-full max-w-sm shadow-xl space-y-4">
-      <h2 class="text-lg font-semibold">Alle Runden löschen?</h2>
-      <p class="text-sm text-neutral-300">Diese Aktion kann nicht rückgängig gemacht werden.</p>
+  <div id="confirmModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+    <div class="bg-neutral-900/60 backdrop-blur-lg border border-white/20 rounded-xl p-6 w-full max-w-sm shadow-2xl space-y-4">
+      <h2 class="text-lg font-semibold drop-shadow">Alle Runden löschen?</h2>
+      <p class="text-sm text-neutral-200">Diese Aktion kann nicht rückgängig gemacht werden.</p>
       <div class="flex justify-end gap-2">
-        <button id="cancelClear" class="px-4 py-2 rounded bg-neutral-700 hover:bg-neutral-600">Nein</button>
-        <button id="confirmClear" class="px-4 py-2 rounded bg-red-600 hover:bg-red-500">Ja, löschen</button>
+        <button id="cancelClear" class="px-4 py-2 rounded bg-white/10 hover:bg-white/20 border border-white/20 transition-all backdrop-blur-sm">Nein</button>
+        <button id="confirmClear" class="px-4 py-2 rounded bg-red-500/60 hover:bg-red-500/80 border border-red-400/40 transition-all backdrop-blur-sm shadow-[0_0_15px_rgba(239,68,68,0.4)]">Ja, löschen</button>
       </div>
     </div>
   </div>
@@ -66,23 +67,23 @@
   <!-- Battle-Mode Auswahl entfernt, der Rechner arbeitet nun allgemein mit den eingegebenen RP-Daten -->
 
   <div class="grid grid-cols-3 gap-4">
-    <div class="bg-gradient-to-br from-blue-600 to-blue-700 p-4 rounded-xl text-center">
-      <p class="text-sm text-blue-100 mb-2">Average RP / Match</p>
-      <p class="text-3xl font-bold text-white" id="avgRP">0</p>
+    <div class="bg-gradient-to-br from-blue-500/30 to-blue-700/30 backdrop-blur-md border border-blue-400/30 p-4 rounded-xl text-center shadow-lg">
+      <p class="text-sm text-blue-100 mb-2 drop-shadow">Average RP / Match</p>
+      <p class="text-3xl font-bold text-white drop-shadow-md" id="avgRP">0</p>
     </div>
-    <div class="bg-gradient-to-br from-amber-600 to-amber-700 p-4 rounded-xl text-center">
-      <p class="text-sm text-amber-100 mb-2">Matches needed</p>
-      <p class="text-3xl font-bold text-white" id="matches">0</p>
+    <div class="bg-gradient-to-br from-amber-500/30 to-amber-700/30 backdrop-blur-md border border-amber-400/30 p-4 rounded-xl text-center shadow-lg">
+      <p class="text-sm text-amber-100 mb-2 drop-shadow">Matches needed</p>
+      <p class="text-3xl font-bold text-white drop-shadow-md" id="matches">0</p>
     </div>
-    <div class="bg-gradient-to-br from-purple-600 to-purple-700 p-4 rounded-xl text-center">
-      <p class="text-sm text-purple-100 mb-2">Total time needed</p>
-      <p class="text-3xl font-bold text-white" id="time">0h 0min</p>
+    <div class="bg-gradient-to-br from-purple-500/30 to-purple-700/30 backdrop-blur-md border border-purple-400/30 p-4 rounded-xl text-center shadow-lg">
+      <p class="text-sm text-purple-100 mb-2 drop-shadow">Total time needed</p>
+      <p class="text-3xl font-bold text-white drop-shadow-md" id="time">0h 0min</p>
     </div>
   </div>
 
-  <div class="bg-gradient-to-br from-red-600 to-red-700 p-4 rounded-xl text-center">
-    <p class="text-sm text-red-100 mb-2">Average RP / minute</p>
-    <p class="text-3xl font-bold text-white" id="avgRPPerMin">0</p>
+  <div class="bg-gradient-to-br from-red-500/30 to-red-700/30 backdrop-blur-md border border-red-400/30 p-4 rounded-xl text-center shadow-lg">
+    <p class="text-sm text-red-100 mb-2 drop-shadow">Average RP / minute</p>
+    <p class="text-3xl font-bold text-white drop-shadow-md" id="avgRPPerMin">0</p>
   </div>
 </div>
 
@@ -127,8 +128,8 @@ function render() {
   roundList.innerHTML = '';
   rounds.forEach((r,i)=>{
     const li = document.createElement('li');
-    li.className = 'flex justify-between bg-neutral-800 px-3 py-1 rounded';
-    li.innerHTML = `<span>${r.rp} RP · ${Math.floor(r.time/60)}m ${r.time%60}s</span><button class="text-red-400">✕</button>`;
+    li.className = 'flex justify-between bg-white/5 border border-white/10 backdrop-blur-sm px-3 py-2 rounded-lg shadow-inner';
+    li.innerHTML = `<span>${r.rp} RP · ${Math.floor(r.time/60)}m ${r.time%60}s</span><button class="text-red-400 hover:text-red-300 transition-colors drop-shadow-md">✕</button>`;
     li.querySelector('button').onclick = ()=>{
       rounds.splice(i,1);
       currentRPInput.value = Math.max((+currentRPInput.value||0) - r.rp, 0);
